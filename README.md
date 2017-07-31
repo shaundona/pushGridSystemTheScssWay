@@ -10,7 +10,7 @@ Grid follows this equation:
 width: calc(percentage($columns / $grid-columns) - $grid-gutter + ($grid-gutter * percentage($columns / $grid-columns)));
 
 ## Demo
-- http://www.pencilandfox.getforge.io/scrummylibrary/responsive-SCSS-grid
+- https://www.pencilandfox.getforge.io/scrummylibrary/responsive-SCSS-grid
 
 ## Requirements
 - SASS compiler
