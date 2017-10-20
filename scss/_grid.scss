@@ -87,57 +87,34 @@ $columns-breakpoint: 100% / $grid-columns-breakpoint; // Breakpoint grid divisio
         margin-left: $gutter;
     }
 }
-//Push from left : max is half grid column total
-@for $i from 1 through ($grid-columns / 2) {
-    $col: $columns * $i;
-    $z: ($gutter * ($i / $grid-columns)) + $gutter; // Push-left grid : Equation
-    $p: $gutter - ($gutter * ($i / $grid-columns)); // Push-left grid : Equation
+//Push from right
+ @for $i from 1 through ($grid-columns - 1) {
+  $col: $columns * $i;
+  $z: ($gutter * ($i / $grid-columns)) + $gutter; // Push-left grid : Equation
+  $d: $z - $gutter;
 
-    .pf-col-#{$i}-push {
-        width: calc(#{$col} - #{$z});
-        float: left;
-        margin-left: calc(#{$col} + #{$p});
-    }
+  .pf-col-#{$i}-push {
+    position: relative;
+    float: right;
+    right: calc(#{$col} - #{$d});
+    margin-right: $gutter;
+    margin-left: 0px;
+  }
 }
-//Responive push : max is half $grid-columns-breakpoint column total
-@for $i from 1 through ($grid-columns-breakpoint / 2) {
-     @media (max-width: #{$breakpoint}){
-        $col-b: $columns-breakpoint * $i;
-        $z: ($gutter * ($i / $grid-columns-breakpoint)) + $gutter; // Push-left grid : Equation
-        $p: $gutter - ($gutter * ($i / $grid-columns-breakpoint)); // Push-left grid : Equation
 
-        .pf-col-#{$i}-push-breakpoint {
-            width: calc(#{$col-b} - #{$z});
-            float: left;
-            margin-left: calc(#{$col-b} + #{$p});
-        }
-    }
-}
-//Pull from left : max is half grid column total
-@for $i from 1 through ($grid-columns / 2) {
-    $col: $columns * $i;
-    $z: ($gutter * ($i / $grid-columns)) + $gutter; // Push-left grid : Equation
-    $p: $gutter - ($gutter * ($i / $grid-columns)); // Push-left grid : Equation
+//Pull from left
+@for $i from 1 through ($grid-columns - 1) {
 
-    .pf-col-#{$i}-pull {
-        width: calc(#{$col} - #{$z});
-        float: right;
-        margin-right: calc(#{$col} + #{$p});
-    }
-}
-//Responive push : max is half $grid-columns-breakpoint column total
-@for $i from 1 through ($grid-columns-breakpoint / 2) {
-     @media (max-width: #{$breakpoint}){
-        $col-b: $columns-breakpoint * $i;
-        $z: ($gutter * ($i / $grid-columns-breakpoint)) + $gutter; // Push-left grid : Equation
-        $p: $gutter - ($gutter * ($i / $grid-columns-breakpoint)); // Push-left grid : Equation
+  $col: $columns * $i;
+  $z: ($gutter * ($i / $grid-columns)) + $gutter; // Push-left grid : Equation
+  $d: $z - $gutter;
 
-        .pf-col-#{$i}-pull-breakpoint {
-            width: calc(#{$col-b} - #{$z});
-            float: right;
-            margin-right: calc(#{$col-b} + #{$p});
-        }
-    }
+  .pf-col-#{$i}-pull {
+    position: relative;
+    left: calc(#{$col} - #{$d});
+    margin-left: $gutter; 
+  }
+
 }
 //Shift and center : max is grid column total minus one
 @for $i from 1 through ($grid-columns - 1) {
