@@ -30,7 +30,7 @@ $columns-breakpoint: 100% / $grid-columns-breakpoint; // Breakpoint grid divisio
 .pf-grid-wrapper {
     width: 100%;
     margin: 0 auto;
-    max-width: $grid-max-width;
+    max-width: $grid-max-width + $gutter;
 }
 .pf-grid-row,
 .pf-grid-wrapper {
@@ -47,7 +47,14 @@ $columns-breakpoint: 100% / $grid-columns-breakpoint; // Breakpoint grid divisio
 .pf-grid-wrapper:after {
     clear: both;
 }
-//Desktop columns
+
+.clearfix {
+clear: both;
+content: '';
+display: table;
+}
+
+//Desktop columns : standard grid
 .pf-col-collapse {
     margin-left: -$gutter;
     margin-right: -$gutter;
@@ -69,24 +76,7 @@ $columns-breakpoint: 100% / $grid-columns-breakpoint; // Breakpoint grid divisio
         margin-left: $gutter;
     }
 }
-@for $i from 1 through $grid-columns-breakpoint - 1 {
-    $col-b: $columns-breakpoint * $i;
-    $z: ($gutter * ($i / $grid-columns-breakpoint)) + $gutter; // Push-left grid : Equation
-    @media (max-width: #{$breakpoint}) {
-        .pf-col-#{$i}-breakpoint {
-            width: calc(#{$col-b} - #{$z});
-            float: left;
-            margin-left: $gutter;
-        }
-    }
-}
-@media (max-width: #{$breakpoint}) {
-    .pf-col-#{$grid-columns-breakpoint}-breakpoint {
-        width: calc(100% - #{$gutter-double});
-        float: left;
-        margin-left: $gutter;
-    }
-}
+
 //Push from right
  @for $i from 1 through ($grid-columns - 1) {
   $col: $columns * $i;
@@ -112,10 +102,11 @@ $columns-breakpoint: 100% / $grid-columns-breakpoint; // Breakpoint grid divisio
   .pf-col-#{$i}-pull {
     position: relative;
     left: calc(#{$col} - #{$d});
-    margin-left: $gutter; 
+    margin-left: $gutter;
   }
 
 }
+
 //Shift and center : max is grid column total minus one
 @for $i from 1 through ($grid-columns - 1) {
     $col: $columns * $i;
@@ -138,6 +129,28 @@ $columns-breakpoint: 100% / $grid-columns-breakpoint; // Breakpoint grid divisio
             margin: 0 auto;
             position: relative;
         }
+    }
+}
+
+//Breakpoint columns : standard grid : end of layout file for hierarchy
+@for $i from 1 through $grid-columns-breakpoint - 1 {
+    $col-b: $columns-breakpoint * $i;
+    $z: ($gutter * ($i / $grid-columns-breakpoint)) + $gutter; // Push-left grid : Equation
+    @media (max-width: #{$breakpoint}) {
+        .pf-col-#{$i}-breakpoint {
+            width: calc(#{$col-b} - #{$z});
+            float: left;
+            margin-left: $gutter;
+        }
+    }
+}
+@media (max-width: #{$breakpoint}) {
+    .pf-col-#{$grid-columns-breakpoint}-breakpoint {
+        width: calc(100% - #{$gutter-double});
+        float: left;
+        margin-left: $gutter;
+        left: inherit;
+        right: inherit;
     }
 }
 

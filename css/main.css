@@ -72,7 +72,7 @@ table {
 .pf-grid-wrapper {
   width: 100%;
   margin: 0 auto;
-  max-width: 1280px; }
+  max-width: 1300px; }
 
 .pf-grid-row,
 .pf-grid-wrapper {
@@ -88,6 +88,11 @@ table {
 .pf-grid-row:after,
 .pf-grid-wrapper:after {
   clear: both; }
+
+.clearfix {
+  clear: both;
+  content: '';
+  display: table; }
 
 .pf-col-collapse {
   margin-left: -20px;
@@ -153,54 +158,6 @@ table {
   width: calc(91.6666666667% - 38.3333333333px);
   float: left;
   margin-left: 20px; }
-
-@media (max-width: 768px) {
-  .pf-col-1-breakpoint {
-    width: calc(12.5% - 22.5px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-2-breakpoint {
-    width: calc(25% - 25px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-3-breakpoint {
-    width: calc(37.5% - 27.5px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-4-breakpoint {
-    width: calc(50% - 30px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-5-breakpoint {
-    width: calc(62.5% - 32.5px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-6-breakpoint {
-    width: calc(75% - 35px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-7-breakpoint {
-    width: calc(87.5% - 37.5px);
-    float: left;
-    margin-left: 20px; } }
-
-@media (max-width: 768px) {
-  .pf-col-8-breakpoint {
-    width: calc(100% - 40px);
-    float: left;
-    margin-left: 20px; } }
 
 .pf-col-1-push {
   position: relative;
@@ -430,6 +387,56 @@ table {
     width: calc(87.5% - 37.5px);
     margin: 0 auto;
     position: relative; } }
+
+@media (max-width: 768px) {
+  .pf-col-1-breakpoint {
+    width: calc(12.5% - 22.5px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-2-breakpoint {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-3-breakpoint {
+    width: calc(37.5% - 27.5px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-4-breakpoint {
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-5-breakpoint {
+    width: calc(62.5% - 32.5px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-6-breakpoint {
+    width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-7-breakpoint {
+    width: calc(87.5% - 37.5px);
+    float: left;
+    margin-left: 20px; } }
+
+@media (max-width: 768px) {
+  .pf-col-8-breakpoint {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px;
+    left: inherit;
+    right: inherit; } }
 
 .pf-grid-row > div span {
   height: 10em;
